@@ -22,3 +22,10 @@ flutter:
 
   assets:
     - images/
+
+  fonts:
+    - family: PaletteMosaic
+      fonts:
+        - asset: fonts/PaletteMosaic-Regular.ttf
+
+
