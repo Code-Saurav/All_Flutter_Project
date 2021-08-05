@@ -9,66 +9,80 @@ class XylophoneApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Center(
-            child: Container(
-                child: Column(
-              children: [
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.green),
-                  ),
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                  child: Text('Click me to play'),
+          child: Container(
+              child: Column(
+            children: [
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
                 ),
-                TextButton(
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                  child: Text('Click me to play'),
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('note1.wav');
+                },
+              ),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.orange),
                 ),
-                TextButton(
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                  child: Text('Click me to play'),
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('note1.wav');
+                },
+              ),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.yellow),
                 ),
-                TextButton(
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                  child: Text('Click me to play'),
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('note1.wav');
+                },
+              ),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.green),
                 ),
-                TextButton(
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                  child: Text('Click me to play'),
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('note1.wav');
+                },
+              ),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.teal),
                 ),
-                TextButton(
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                  child: Text('Click me to play'),
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('note1.wav');
+                },
+              ),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
                 ),
-                TextButton(
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                  child: Text('Click me to play'),
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('note1.wav');
+                },
+              ),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.deepPurple),
                 ),
-              ],
-            )),
-          ),
+                onPressed: () {
+                  final player = AudioCache();
+                  player.play('note1.wav');
+                },
+              ),
+            ],
+          )),
         ),
       ),
     );
