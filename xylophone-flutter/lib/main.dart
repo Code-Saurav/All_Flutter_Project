@@ -1,88 +1,47 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/rendering.dart';
 
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
+  void playSound(int soundNumber) {
+    final player = AudioCache();
+    player.play('note$soundNumber.wav');
+  }
+
+  Expanded buildKey({Color color, int soundNumber}) {
+    return Expanded(
+      child: TextButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(color),
+        ),
+        onPressed: () {
+          playSound(soundNumber);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
-          child: Container(
-              child: Column(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-                ),
-                onPressed: () {
-                  final player = AudioCache();
-                  player.play('note1.wav');
-                },
-              ),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.orange),
-                ),
-                onPressed: () {
-                  final player = AudioCache();
-                  player.play('note1.wav');
-                },
-              ),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.yellow),
-                ),
-                onPressed: () {
-                  final player = AudioCache();
-                  player.play('note1.wav');
-                },
-              ),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.green),
-                ),
-                onPressed: () {
-                  final player = AudioCache();
-                  player.play('note1.wav');
-                },
-              ),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.teal),
-                ),
-                onPressed: () {
-                  final player = AudioCache();
-                  player.play('note1.wav');
-                },
-              ),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blue),
-                ),
-                onPressed: () {
-                  final player = AudioCache();
-                  player.play('note1.wav');
-                },
-              ),
-              TextButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.deepPurple),
-                ),
-                onPressed: () {
-                  final player = AudioCache();
-                  player.play('note1.wav');
-                },
-              ),
+              buildKey(color: Colors.red, soundNumber: 1),
+              buildKey(color: Colors.orange, soundNumber: 2),
+              buildKey(color: Colors.yellow, soundNumber: 3),
+              buildKey(color: Colors.green, soundNumber: 4),
+              buildKey(color: Colors.teal, soundNumber: 5),
+              buildKey(color: Colors.blue, soundNumber: 6),
+              buildKey(color: Colors.deepPurple, soundNumber: 7),
             ],
-          )),
+          ),
         ),
       ),
     );
