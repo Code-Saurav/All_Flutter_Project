@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quizzler/quiz_brain.dart';
 
@@ -29,19 +30,6 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
-  // initialize empty lists
-//   List<String> questions = [
-//     'You can lead a cow down stairs but not up stairs.',
-//     'Approximately one quarter of human bones are in the feet.',
-//     'A slug\'s blood is green.',
-//   ];
-//
-//   int questionNumber = 0;
-//
-//   List<bool> answers = [false, true, true];
-// //new question object
-//   Question q1 = Question( q: 'You can lead a cow down stairs but not up stairs.', a: false);
-
   int questionNumber = 0;
 
   @override
@@ -56,7 +44,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.questionBank[questionNumber].questionText,
+                quizBrain.getQuestionText(questionNumber),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -83,8 +71,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //quizBrain.questionBank[questionNumber].questionAnswer = true;
-                bool correctAnswer =
-                    quizBrain.questionBank[questionNumber].questionAnswer;
+                bool correctAnswer = quizBrain.getCorrectAnswer(questionNumber);
                 if (correctAnswer == true) {
                   print('User got it right!');
                 } else {
@@ -113,14 +100,17 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = quizBrain.getCorrectAnswer(questionNumber);
+
+                if (correctAnswer == false) {
+                  print('user got it right');
+                } else {
+                  print('user got it wrong');
+                }
                 setState(() {
-                  scoreKeeper.add(
-                    Icon(
-                      Icons.close,
-                      color: Colors.red,
-                    ),
-                  );
+                  questionNumber++;
                 });
+                print(questionNumber);
                 //The user picked false.
               },
             ),
