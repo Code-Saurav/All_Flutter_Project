@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color(0xFF272A4E);
@@ -25,11 +26,17 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: activeCardColor,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     colour: activeCardColor,
+                    cardChild: IconContent(
+                        icon: FontAwesomeIcons.venus, label: 'FEMALE'),
                   ),
                 ),
               ],
@@ -68,15 +75,45 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
+class IconContent extends StatelessWidget {
+  IconContent({this.icon, this.label}); //Constructor
+
+  final IconData icon;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Icon(
+          icon,
+          size: 80.0,
+        ),
+        SizedBox(height: 15),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 18,
+            color: Color(0xFF8D8FA8),
+          ),
+        )
+      ],
+    );
+  }
+}
+
 class ReusableCard extends StatelessWidget {
-  ReusableCard({@required this.colour});
+  ReusableCard({@required this.colour, this.cardChild});
 
   final Color
       colour; // final is important her because it make the properties immutable
+  final Widget cardChild;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: cardChild,
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         color: colour,
